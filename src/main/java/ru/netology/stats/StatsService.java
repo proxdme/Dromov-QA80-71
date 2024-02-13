@@ -2,70 +2,70 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public int getSalesSum(int[] MonthlySalesResults) {
-        int MonthlySalesSum = 0;
-        for (int MonthlySales : MonthlySalesResults) {
-            MonthlySalesSum = MonthlySalesSum + MonthlySales;
+    public int getSalesSum(int[] monthlySalesResults) {
+        int monthlySalesSum = 0;
+        for (int MonthlySales : monthlySalesResults) {
+            monthlySalesSum = monthlySalesSum + MonthlySales;
         }
-        return MonthlySalesSum;
+        return monthlySalesSum;
     }
 
     //сумму всех продаж;
-    public int getAverageAmountSales(int[] MonthlySalesResults) {
-        int MonthNumbers = MonthlySalesResults.length;
-        int MonthlySalesSum = getSalesSum(MonthlySalesResults);
-        int getAverageAmountSalesMonth = MonthlySalesSum / MonthNumbers;
+    public int getAverageAmountSales(int[] monthlySalesResults) {
+        int monthNumbers = monthlySalesResults.length;
+        int monthlySalesSum = getSalesSum(monthlySalesResults);
+        int getAverageAmountSalesMonth = monthlySalesSum / monthNumbers;
         return getAverageAmountSalesMonth;
     }
 
     // среднюю сумму продаж в месяц;
-    public int getMonthNumberMaxSales(int[] MonthlySalesResults) {
-        int MonthNumberMaxSales = 0;
-        for (int MonthNumber = 0; MonthNumber < MonthlySalesResults.length; MonthNumber++) {
-            if (MonthlySalesResults[MonthNumber] > MonthlySalesResults[MonthNumberMaxSales]) {
-                MonthNumberMaxSales = MonthNumber;
+    public int getMonthNumberMaxSales(int[] monthlySalesResults) {
+        int monthNumberMaxSales = 0;
+        for (int monthNumber = 0; monthNumber < monthlySalesResults.length; monthNumber++) {
+            if (monthlySalesResults[monthNumber] > monthlySalesResults[monthNumberMaxSales]) {
+                monthNumberMaxSales = monthNumber;
             }
         }
         //System.out.println(" Номер месяца макс продаж -№ " + (MonthNumberMaxSales + 1));
-        return MonthNumberMaxSales + 1;
+        return monthNumberMaxSales + 1;
     }
 
     //номер месяца, в котором был пик продаж, то есть осуществлены продажи на максимальную сумму*;
-    public int getMonthNumberMinSales(int[] MonthlySalesResults) {
-        int MonthNumberMinSales = 0;
-        for (int MonthNumber = 0; MonthNumber < MonthlySalesResults.length; MonthNumber++) {
-            if (MonthlySalesResults[MonthNumber] <= MonthlySalesResults[MonthNumberMinSales]) {
-                MonthNumberMinSales = MonthNumber;
+    public int getMonthNumberMinSales(int[] monthlySalesResults) {
+        int monthNumberMinSales = 0;
+        for (int monthNumber = 0; monthNumber < monthlySalesResults.length; monthNumber++) {
+            if (monthlySalesResults[monthNumber] <= monthlySalesResults[monthNumberMinSales]) {
+                monthNumberMinSales = monthNumber;
             }
         }
         //System.out.println(" Номер месяца мин продаж -№ " + (MonthNumberMinSales + 1));
-        return MonthNumberMinSales + 1;
+        return monthNumberMinSales + 1;
 
 
     }
     // номер месяца, в котором был минимум продаж, то есть осуществлены продажи на минимальную сумму*
 
-    public int getMonthSumMinSales(int[] MonthlySalesResults) {
-        int MonthMinAverageSum = 0;
-        int AverageAmountMonth = getAverageAmountSales(MonthlySalesResults);
-        for (int MonthlySales : MonthlySalesResults) {
-            if (MonthlySales < AverageAmountMonth) {
-                MonthMinAverageSum++;
+    public int getMonthSumMinSales(int[] monthlySalesResults) {
+        int monthMinAverageSum = 0;
+        int averageAmountMonth = getAverageAmountSales(monthlySalesResults);
+        for (int monthlySales : monthlySalesResults) {
+            if (monthlySales < averageAmountMonth) {
+                monthMinAverageSum++;
             }
         }
-        return MonthMinAverageSum;
+        return monthMinAverageSum;
     }
 
     //количество месяцев, в которых продажи были ниже среднего
-    public int getMonthSumMaxSales(int[] MonthlySalesResults) {
-        int MonthMinAverageSum = 0;
-        int AverageAmountMonth = getAverageAmountSales(MonthlySalesResults);
-        for (int MonthlySales : MonthlySalesResults) {
-            if (MonthlySales > AverageAmountMonth) {
-                MonthMinAverageSum++;
+    public int getMonthSumMaxSales(int[] monthlySalesResults) {
+        int monthMinAverageSum = 0;
+        int averageAmountMonth = getAverageAmountSales(monthlySalesResults);
+        for (int monthlySales : monthlySalesResults) {
+            if (monthlySales > averageAmountMonth) {
+                monthMinAverageSum++;
             }
         }
-        return MonthMinAverageSum;
+        return monthMinAverageSum;
     }
     //количество месяцев, в которых продажи были выше среднего
 }
